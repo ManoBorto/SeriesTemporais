@@ -1,1 +1,27 @@
+name: timeseries
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Configurar ambiente R
+      uses: r-lib/actions/setup-r@v1
+
+    - name: Clonar repositório
+      uses: actions/checkout@v2
+
+    - name: Instalar dependências
+      run: |
+        Rscript -e 'install.packages("readr")'
+        Rscript -e 'install.packages("forecast")'
+
+    - name: Executar script R
+      run: |
+        Previsao.R
 
