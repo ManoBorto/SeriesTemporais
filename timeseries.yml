@@ -20,6 +20,7 @@ jobs:
       run: |
         Rscript -e 'install.packages("readr")'
         Rscript -e 'install.packages("forecast")'
+        Rscript -e 'install.packages("httr")'
 
     - name: Executar script R
       run: |
